@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    width: 500px;
+    height: 600px;
+    margin: 50px auto;
+}
+
+.container {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    flex : 2;
+    background-color: rgb(181, 96, 153);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.appName {
+    flex: 1;
+    display: flex;
+    font-size: 24px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+}
+
+.control {
+    flex: 1;
+    display: flex;
+}
+
+.inputText {
+    flex: 6;
+    font-size: 20px;
+    outline: transparent;
+}
+
+.addBtn {
+    flex: 1;
+}
+
+.updateBtn {
+    flex: 1;
+}
+
+.content {
+    flex: 7;
+    background-color: rgb(230, 242, 211);
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    max-height: 4000px;
+    overflow: auto;
+}
+
+.navBar {
+    height: 40px;
+    display: flex;
+    border: 1px solid #e3a3a3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.deleteSelectBtn {
+    flex: 1;
+    border-top-left-radius: 10px;
+    background-color: transparent;
+}
+
+.title {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.statusTitle {
+    flex: 3;
+    display: flex;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+}
+
+.checkItem {
+    flex: 1;
+    height: 18px;
+    margin-top: 5px;
+}
+
+.desc {
+    flex: 6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.sub {
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.btnDetail {
+    background-color: transparent;
+    position: relative;
+}
+
+.subBtn {
+    position: absolute;
+    display: none;
+    background-color: white;
+    right: 2px;
+    top: -14px;
+}
+
+.btnDetail:hover .subBtn {
+    display: flex;
+}
+
+.btnEdit {
+    background-color: transparent;
+    width: 20px;
+}
+
+.btnDelete {
+    background-color: transparent;
+    width: 20px;
+    border-left-color: black;
+}
+
+.footer {
+    flex: 1;
+    display: flex;
+    background-color: rgb(154, 184, 36);
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: space-between;
+}
