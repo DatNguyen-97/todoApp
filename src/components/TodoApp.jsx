@@ -154,7 +154,7 @@ const TodoApp = () => {
                     
                 </div>
                 <footer className="footer">
-                    <div className="pendingStatus">You have 5 tasks</div>
+                    <div className="pendingStatus">You have {list.length} tasks</div>
                     <button onClick={() => setList([])} className="deleteAllBtn">Clear all</button>
                 </footer>
             </div>

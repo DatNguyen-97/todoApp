@@ -165,3 +165,14 @@ ul {
     overflow: hidden;
     justify-content: space-between;
 }
+
+.pendingStatus {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.deleteAllBtn {
+    width: 70px;
+}
