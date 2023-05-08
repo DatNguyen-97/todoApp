@@ -34,6 +34,7 @@ const TodoApp = () => {
     }
 
     const handleEdit = (index,e) => {
+        console.log('edit')
         e.stopPropagation()
         setIndexEdit(index)
         setAddBtn('none')
@@ -52,6 +53,7 @@ const TodoApp = () => {
     }
 
     const handleChangeStatus = (index) => {
+        console.log('change')
         const arr = [...list]
         const tempStatus = !arr[index].statusItem
         if(tempStatus) {
@@ -77,6 +79,8 @@ const TodoApp = () => {
     }
 
     const handleChecked = (checked,index,e) => {
+        console.log(e)
+        console.log('click input')
         e.stopPropagation()
         const arr = [...list]
         const tempStatus = !checked
@@ -124,11 +128,11 @@ const TodoApp = () => {
                             list?.map((todo,index) => {
                                 return (
                                     <div className="item" onClick={() => handleChangeStatus(index)} style={{backgroundColor : todo.statusItem ? 'green' : 'yellow'}}>
-                                        <input onChange={(e) => handleChecked(todo.checked,index,e)} type="checkbox" className="checkItem"></input>
+                                        <input checked={todo.checked} onClick={(e) => handleChecked(todo.checked,index,e)} type="checkbox" className="checkItem"></input>
                                         <div className="desc" key={todo.id} style={{textDecoration : todo.statusItem ? 'line-through' : 'none'}}>{todo.title}</div>
                                         <div className="sub">
                                             <div className="status">{todo.status}</div>
-                                            <button className="btnDetail">
+                                            <div className="btnDetail">
                                                 <IconContext.Provider value={{size : '18px'}}>
                                                     <AiOutlineMore/>
                                                 </IconContext.Provider>
@@ -144,7 +148,7 @@ const TodoApp = () => {
                                                         </IconContext.Provider>
                                                     </button>
                                                 </div>                                                
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 )
