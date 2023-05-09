@@ -17,18 +17,19 @@ const TodoApp = () => {
     const [indexEdit, setIndexEdit] = useState('')
     
     class Job {
-        constructor(id, title,status,checked,statusItem) {
+        constructor(id, title,status,checked,statusItem,isShow) {
             this.id = id;
             this.title = title;
             this.status = status;
             this.checked = checked;
             this.statusItem = statusItem;
+            this.isShow = isShow;
         }
     }
 
     const handleSubmit = () => {
         if(jobs === '') return
-        const temp = new Job(list.length + 1, jobs, 'Pending',false,false)
+        const temp = new Job(list.length + 1, jobs, 'Pending',false,false,true)
         setList(prev => [...prev, temp])
         setJobs('')
     }
@@ -53,7 +54,6 @@ const TodoApp = () => {
     }
 
     const handleChangeStatus = (index) => {
-        console.log('change')
         const arr = [...list]
         const tempStatus = !arr[index].statusItem
         if(tempStatus) {
@@ -79,8 +79,6 @@ const TodoApp = () => {
     }
 
     const handleChecked = (checked,index,e) => {
-        console.log(e)
-        console.log('click input')
         e.stopPropagation()
         const arr = [...list]
         const tempStatus = !checked
@@ -93,6 +91,21 @@ const TodoApp = () => {
         const newList = arr.filter(todo => todo.checked === false)
         setList(newList)
     }
+
+    const handleSearch = (value) => {
+        console.log(value)
+        const arr = [...list]
+        const newList = arr.map((todo) => {
+            if(!todo.title.includes(value)) {
+                todo.isShow = false;
+            }else {
+                todo.isShow = true;
+            }
+            return todo
+        })
+        setList(newList)
+    }
+    
     return (
         <div className="wrapper">
             <div className="container">
@@ -113,6 +126,7 @@ const TodoApp = () => {
                         
                     </div>
                 </header>
+                <input onChange={(e) => handleSearch(e.target.value)} className="searchBar" type="text" placeholder="Search..."></input>
                 <div className="content">
                     <div className="navBar">
                         <button onClick={handleDeleteSelected} className="deleteSelectBtn">
@@ -127,7 +141,7 @@ const TodoApp = () => {
                         {
                             list?.map((todo,index) => {
                                 return (
-                                    <div className="item" onClick={() => handleChangeStatus(index)} style={{backgroundColor : todo.statusItem ? 'green' : 'yellow'}}>
+                                    <div className="item" onClick={() => handleChangeStatus(index)} style={{backgroundColor : todo.statusItem ? 'green' : 'yellow',display : todo.isShow ? 'flex' : 'none'}}>
                                         <input checked={todo.checked} onClick={(e) => handleChecked(todo.checked,index,e)} type="checkbox" className="checkItem"></input>
                                         <div className="desc" key={todo.id} style={{textDecoration : todo.statusItem ? 'line-through' : 'none'}}>{todo.title}</div>
                                         <div className="sub">
