@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+.wrapper {
+    width: 800px;
+    height: 300px;
+    background-color: rgb(184, 186, 169);
+    margin: 0 auto;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-around;
+    background-color: aqua;
+    height: 50px;
+    align-items: center;
+}
+
+.navBar li {
+    flex: 1;
+    line-height: 50px;
+
+}
+
+.navBar a {
+    display: block;
+    color: black;
+    width: 100%;
+    height: 100%;
+}

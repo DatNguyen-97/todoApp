@@ -1,0 +1,11 @@
+.content {
+    display: flex;
+}
+
+.navBar_about {
+    flex: 3;
+}
+
+.detail {
+    flex: 7;
+}

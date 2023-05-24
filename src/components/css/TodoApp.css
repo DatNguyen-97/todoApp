@@ -109,7 +109,6 @@ ul {
 }
 
 .item {
-    display: flex;
     height: 30px;
     line-height: 30px;
 }
