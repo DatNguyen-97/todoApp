@@ -1,6 +1,6 @@
 const Item3 = () => {
     return (
-        <div>Tong quan</div>
+        <div>TPHCM</div>
     )
 }
 export default Item3
